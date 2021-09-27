@@ -1,0 +1,52 @@
+<div class="jumbotron text-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-2 col-md-3"></div>
+            <div class="col-sm-8 col-md-6">
+                <h1 class="display-4">Todos!</h1>
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Todo Title" #todoTitle>
+                    <div class="input-group-append">
+                        <button type="button" class="btn btn-outline-success"
+                            (click)="addTodo(todoTitle.value);todoTitle.value=''">Add Todo</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- List of todos -->
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-sm-2 col-md-3"></div>
+        <div class="col-sm-8 col-md-6">
+            <h4 class="text-center">Todos</h4>
+            <ul class="list-group">
+                <li class="list-group-item" *ngFor="let todo of todos">
+                    <i class="fa fa-square-o" (click) = "editTodo(todo);"></i>
+                    {{todo.title}}
+                </li>
+               
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- List of finished todos -->
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-sm-2 col-md-3"></div>
+        <div class="col-sm-8 col-md-6">
+            <h4 class="text-center">Finished Todos</h4>
+
+            <ul class="list-group">
+                <li class="list-group-item" *ngFor="let todo of finishedTodos">
+                    <i class="fa fa-check-square-o" (click) = "editTodo(todo);"></i>
+                    {{ todo.title }}
+                    <i class="fa fa-trash float-end mt-1" (click)="deleteTodo(todo);"></i>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
